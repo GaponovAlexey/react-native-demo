@@ -1,23 +1,24 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
-export const Navbar = () => {
+export const Navbar = ({title}) => {
 	return (
-		<View >
-			<Text >Navbar4ik</Text>
+		<View style={ styles.navbar } >
+			<Text style={styles.text}>{title}</Text>
 		</View>
 	)
 }
 
 const styles = StyleSheet.create({
 	navbar: {
-		//height: 40,
-		//borderColor: '#000',
-		//alignItems: 'center',
-		//justifyContent: 'center',
+		height: 60,
+		alignItems: 'center',
+		justifyContent: 'flex-end',
+		backgroundColor: '#3949ab',
+		paddingBottom: 10,
 	},
 	text: {
-		//flex: 1,
+		color: '#fff'
 
 	}
 })
