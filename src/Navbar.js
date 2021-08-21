@@ -1,10 +1,12 @@
-import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
 
-export const Navbar = ({title}) => {
+
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+
+export function Navbar({ title }) {
 	return (
-		<View style={ styles.navbar } >
-			<Text style={styles.text}>{title}</Text>
+		<View style={ styles.navbar }>
+			<Text style={ styles.text }>{ title }</Text>
 		</View>
 	)
 }
@@ -19,6 +21,6 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		color: '#fff'
-
 	}
+
 })

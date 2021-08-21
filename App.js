@@ -7,24 +7,18 @@ import { Todo } from './src/Todo';
 
 export default function App() {
   const [todos, setTodos] = useState([])
-  const addTodo = (title) => {
-    const newTodo = {
-      id: Date.now().toString(),
-      title: title
-    }
+  const addTodo = title => {
 
-    //setTodos(todos.concat([newTodo]))
-    //setTodos((prevTodos) => {
-    //  return [
-    //    ...prevTodos,
-    //    newTodo
-    //  ]
-    //})
-    setTodos(prev => [...prev, {
-      id: Date.now().toString(),
-      title
-    }])
+    setTodos(prev => {
+      return [
+        {
+          id: Date.now().toString(),
+          title
+        }, ...prev
+      ]
+    })
   }
+
   return (
     <View >
       <Navbar title={ 'Title-Appsrr!' } />
@@ -32,8 +26,7 @@ export default function App() {
         <Text>last name</Text>
         <AddTodo onSubmit={ addTodo } />
         <View>
-          { todos.map(todo => <Todo key={ todo.id } todo={ todo.title } />
-          ) }
+          { todos.map(s => <Todo key={ s.id } todo={ s } />) }
         </View>
       </View>
     </View>
