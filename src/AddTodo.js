@@ -39,7 +39,7 @@ export const AddTodo = ({ onSubmit }) => {
 const styles = StyleSheet.create({
 	block: {
 		flexDirection: 'row',
-		justifyContent: 'space-between',
+		justifyContent: 'flex-end',
 		alignItems: 'center',
 	},
 	input: {

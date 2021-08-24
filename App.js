@@ -19,6 +19,8 @@ export default function App() {
     })
   }
 
+
+  
   return (
     <View >
       <Navbar title={ 'Title-Appsrr!' } />
