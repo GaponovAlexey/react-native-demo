@@ -1,52 +1,43 @@
 import React, { useState } from 'react'
-import { StyleSheet, TextInput, View, Button } from 'react-native'
+import { Alert, Button, StyleSheet, TextInput, View, ScrollView } from 'react-native'
 
-export const AddTodo = ({ onSubmit }) => {
-
-	//const [value, setValue] = useState('')
-
-	//const pressHandler = () => {
-	//	if (value.trim()) {
-	//		onSubmit(value)
-	//		setValue('')
-	//	}
-	//}
-
+export function AddTodo({ onSubmit }) {
 	const [value, setValue] = useState('')
-	const pressHandler = () => {
-		if(value.trim()){
+	const click = () => {
+		if (value.trim()) {
 			onSubmit(value)
 			setValue('')
+		} else {
+			Alert.alert('не должно быть пустым')
 		}
 	}
 
 	return (
-		<View style={ styles.block }>
+		<View style={ styles.wraper }
+		>
 			<TextInput style={ styles.input }
-				onChangeText={ setValue }
 				value={ value }
-				placeholder='Веведите название'
+				onChangeText={ setValue }
+				placeholder='text'
+				autoCorrect={false}
+				autoCapitalize='none'
+				keyboardType='default'
 			/>
-			<Button onPress={ pressHandler } title='Добавить' />
+			<Button title='Send' onPress={ click } />
 		</View>
 	)
 }
 
-
-
-
-
 const styles = StyleSheet.create({
-	block: {
+	wraper: {
 		flexDirection: 'row',
-		justifyContent: 'flex-end',
 		alignItems: 'center',
+		justifyContent: 'space-between',
 	},
 	input: {
-		width: '70%',
 		padding: 10,
-		borderStyle: 'solid',
 		borderBottomWidth: 2,
-		borderBottomColor: '#3949ab',
+		width: '80%',
 	}
 })
+
