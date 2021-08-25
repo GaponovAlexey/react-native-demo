@@ -12,15 +12,17 @@ export default function App() {
       title
     }, ...prev])
   }
+
+
   const removeTodo = id => {
-    setValue(prev => prev.filter(todo => todo.id !== id))
+    setValue(prev => prev.filter(prev => prev.id !== id))
   }
 
 
   return (
     <View >
       <Navbar title='Title App!' ></Navbar>
-      <ScrollView style={ styles.container } >
+      <View style={ styles.container } >
         <Text>last name</Text>
         <AddTodo
           onSubmit={ newTodo }
@@ -32,10 +34,7 @@ export default function App() {
             todo={ item } />) }
           keyExtractor={ item => item.id.toString() }
         />
-        <ScrollView >
-          {/*{ value.map(s => <Todo key={ s.id } todo={ s } />) }*/ }
-        </ScrollView>
-      </ScrollView>
+      </View>
     </View>
   );
 }

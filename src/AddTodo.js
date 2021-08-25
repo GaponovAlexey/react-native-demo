@@ -3,26 +3,23 @@ import { Alert, Button, StyleSheet, TextInput, View, ScrollView } from 'react-na
 
 export function AddTodo({ onSubmit }) {
 	const [value, setValue] = useState('')
-	const click = () => {
+	const click = e => {
 		if (value.trim()) {
 			onSubmit(value)
 			setValue('')
-		} else {
-			Alert.alert('не должно быть пустым')
 		}
 	}
 
 	return (
-		<View style={ styles.wraper }
-		>
-			<TextInput style={ styles.input }
-				value={ value }
-				onChangeText={ setValue }
-				placeholder='text'
-				autoCorrect={false}
-				autoCapitalize='none'
-				keyboardType='default'
-			/>
+		<View style={ styles.wraper }>
+				<TextInput style={ styles.input }
+					value={ value }
+					onChangeText={ setValue }
+					placeholder='text'
+					autoCorrect={ false }
+					autoCapitalize='none'
+					keyboardType='default'
+				/>
 			<Button title='Send' onPress={ click } />
 		</View>
 	)
