@@ -5,30 +5,15 @@ import Navbar from './src/Navbar';
 import Todo from './src/Todo';
 
 export default function App() {
-  const [value, setValue] = useState([
-    { id: 1, title: 'da' },
-    { id: 2, title: 'da' },
-    { id: 3, title: 'da' },
-    { id: 4, title: 'da' },
-    { id: 5, title: 'da' },
-    { id: 6, title: 'da' },
-    { id: 7, title: 'da' },
-    { id: 8, title: 'da' },
-    { id: 9, title: 'da' },
-    { id: 10, title: 'da' },
-    { id: 11, title: 'da' },
-    { id: 12, title: 'da' },
-    { id: 13, title: 'da' },
-    { id: 14, title: 'da' },
-    { id: 15, title: 'da' },
-    { id: 16, title: 'da' },
-    { id: 17, title: 'da' },
-  ])
+  const [value, setValue] = useState([])
   const newTodo = title => {
     setValue(prev => [{
       id: Date.now().toString(),
       title
     }, ...prev])
+  }
+  const removeTodo = id => {
+    setValue(prev => prev.filter(todo => todo.id !== id))
   }
 
 
@@ -42,11 +27,13 @@ export default function App() {
         />
         <FlatList
           data={ value }
-          renderItem={ ({ item }) => (<Todo todo={item } />) }
+          renderItem={ ({ item }) => (<Todo
+            onRemove={ removeTodo }
+            todo={ item } />) }
           keyExtractor={ item => item.id.toString() }
         />
         <ScrollView >
-          {/*{ value.map(s => <Todo key={ s.id } todo={ s } />) }*/}
+          {/*{ value.map(s => <Todo key={ s.id } todo={ s } />) }*/ }
         </ScrollView>
       </ScrollView>
     </View>
