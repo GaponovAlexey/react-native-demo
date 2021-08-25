@@ -1,26 +1,31 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Alert, Button } from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
 
 export default function Todo({ todo, onRemove }) {
+
 	return (
-		<TouchableOpacity >
-			<View style={ styles.todo }>
-				<Text>{ todo.title }</Text>
-				<Button title='delet' onPress={ () => onRemove(todo.id) } />
-			</View>
-		</TouchableOpacity >
+		<View style={ { ...styles.todos } }  >
+			<Text>{ todo.title }</Text>
+			<Button style={styles.text} title='delet' onPress={ () => onRemove(todo.id) } />
+		</View>
 	)
 }
 
 const styles = StyleSheet.create({
-	todo: {
+	todos: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		alignItems: 'center',
-		padding: 15,
-		borderRadius: 5,
-		borderColor: '#eee',
-		borderWidth: 1,
-		marginBottom: 2,
+
+		backgroundColor: '#eee',
+		borderRadius: 1,
+		padding: 10,
+		marginBottom: 6,
+		
+		
+	},
+	text: {
+		justifyContent: 'flex-end',
+		flexDirection: 'row',
+
 	}
 })

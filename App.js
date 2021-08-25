@@ -1,39 +1,34 @@
 import React, { useState } from 'react';
 import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { AddTodo } from './src/AddTodo';
-import Navbar from './src/Navbar';
+import { Navbar } from './src/Navbar';
 import Todo from './src/Todo';
 
 export default function App() {
   const [value, setValue] = useState([])
   const newTodo = title => {
-    setValue(prev => [{
+    setValue(e => [{
       id: Date.now().toString(),
       title
-    }, ...prev])
+    }, ...e])
   }
-
-
-  const removeTodo = id => {
-    setValue(prev => prev.filter(prev => prev.id !== id))
+  const remuveTodo = id => {
+    setValue(e => e.filter(todo => todo.id !== id))
   }
-
 
   return (
-    <View >
-      <Navbar title='Title App!' ></Navbar>
+    <View>
+      <Navbar title='Navbar' />
       <View style={ styles.container } >
-        <Text>last name</Text>
-        <AddTodo
-          onSubmit={ newTodo }
-        />
-        <FlatList
-          data={ value }
-          renderItem={ ({ item }) => (<Todo
-            onRemove={ removeTodo }
-            todo={ item } />) }
-          keyExtractor={ item => item.id.toString() }
-        />
+        <AddTodo  onSubmit={ newTodo } />
+        <Text>
+          <FlatList
+            data={ value }
+            renderItem={ ({ item }) => (<Todo onRemove={ remuveTodo } key={ item.id }
+              todo={ item }
+            />) }
+          />
+        </Text>
       </View>
     </View>
   );
