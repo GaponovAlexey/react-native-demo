@@ -1,13 +1,15 @@
 import React from 'react'
 import { Button, StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
 
-export default function Todo({ todo, removeTodo }) {
+export default function Todo({ todo, removeTodo, onOpen }) {
 	const deletTodo = () => {
-	
+
 		removeTodo(todo.id)
 	}
 	return (
-		<TouchableOpacity onLongPress={ deletTodo } >
+		<TouchableOpacity onLongPress={ deletTodo }
+			onPress={ () => onOpen(todo.id) }
+		>
 			<View style={ styles.conteiner }>
 				<Text style={ styles.text } >{ todo.title }</Text>
 			</View>
