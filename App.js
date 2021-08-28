@@ -1,27 +1,43 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import AddTodo from './src/AddTodo';
-import Navbar from './src/Navbar';
-import Todo from './src/Todo';
+import Navbar from './src/components/Navbar';
+import MainScrins from './src/screens/MainScrins';
+import TodoScreen from './src/screens/TodoScreen';
 
 
 export default function App() {
-  const [state, setState] = useState([])
+  const [todoId, setTodoId] = useState(null)
+  const [todos, setTodos] = useState([])
+
+
+
   const addTodo = title => {
-    setState(e => [{
+    setTodos(e => [{
       id: Date.now().toString(),
       title
     }, ...e])
   }
+  const removeTodo = id => {
+    setTodos(e => e.filter(e => e.id !== id))
+  }
+
+  let content = (
+    <MainScrins todos={ todos }
+      removeTodo={ removeTodo }
+      addTodo={ addTodo }
+    />
+  )
+  if (todoId) {
+    content = <TodoScreen />
+  }
+
 
 
   return (
-    <View style={ styles.container } >
+    <View>
       <Navbar title='Add to-do' />
-      <AddTodo onSubmit={ addTodo } />
-      <View>
-        { state.map(e => <Todo key={ e.id } todo={ e } />) }
-
+      <View style={ styles.container } >
+        {content}
       </View>
     </View>
   );
@@ -30,7 +46,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    //paddingHorizontal: 30,
-    //paddingVertical: 20,
+    paddingHorizontal: 30,
+    paddingVertical: 20,
   },
 });
