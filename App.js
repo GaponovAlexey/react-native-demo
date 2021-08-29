@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
 import Navbar from './src/components/Navbar';
 import MainApp from './src/screens/MainApp';
-import Redact from './src/screens/TodoTitle';
+import TodoTitle from './src/screens/TodoTitle';
 
 
 export default function App() {
-  const [todoID, setTodoID] = useState(null)
+  const [todoID, setTodoID] = useState('2')
   const [todos, setTodos] = useState([
     { id: '1', title: 'my APP' },
     { id: '2', title: 'the best APP' },
@@ -20,19 +20,24 @@ export default function App() {
     )
   }
   const removeTodo = (id) => {
-  setTodos(prev => prev.filter(e => e.id !== id))
+    setTodos(prev => prev.filter(e => e.id !== id))
   }
 
 
   let conteiner = (
     <MainApp todos={ todos }
       addTodo={ addTodo }
-      removeTodo={ removeTodo } 
+      removeTodo={ removeTodo }
+      openTodo={ setTodoID }
     />
   )
   if (todoID) {
-    const todoback = todos.find(e => e.id === setTodos)
-    conteiner = <TodoTitle todoback={ todoback } todo={ todos } />
+    const todoback = todos.find(e => e.id === todoID)
+    conteiner = <TodoTitle
+      todoback={ todoback } 
+      todo={ todoback }
+      onBack={ () => setTodoID(null)}
+      />
   }
   return (
     <View>

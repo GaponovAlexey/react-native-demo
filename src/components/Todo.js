@@ -2,10 +2,12 @@ import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { THEME } from '../theme'
 
-export default function Todo({ todo, removeTodo }) {
+export default function Todo({ todo, removeTodo, openTodo }) {
 	return (
 		<TouchableOpacity
 			onLongPress={ () => removeTodo(todo.id) }
+			onPress={ () => openTodo(todo.id) }
+
 		>
 			<Text style={ styles.block }>{ todo.title }</Text>
 		</TouchableOpacity>

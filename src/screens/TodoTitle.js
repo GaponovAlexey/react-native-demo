@@ -1,14 +1,18 @@
 import React from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
-import Todo from '../components/Todo'
 
-export default function TodoTitle({ todo }) {
+export default function TodoTitle({ todo, onBack }) {
 	return (
-		<View>
+		<View style={ styles.mainconteiner }>
 			<Text>{todo.title}</Text>
-			<Button title='back' />
+			<Button title='back' onPress={onBack} />
 		</View>
 	)
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+	mainconteiner: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+	}
+})
