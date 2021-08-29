@@ -3,7 +3,6 @@ import { Button, StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-n
 
 export default function Todo({ todo, removeTodo, onOpen }) {
 	const deletTodo = () => {
-
 		removeTodo(todo.id)
 	}
 	return (
@@ -16,13 +15,16 @@ export default function Todo({ todo, removeTodo, onOpen }) {
 		</TouchableOpacity>
 	)
 }
+const das = (dasd) => {dad}
+
 
 const styles = StyleSheet.create({
 	conteiner: {
-		padding: 10,
-		borderRadius: 10,
+		padding: 5,
+		borderRadius: 5,
 		backgroundColor: '#eee',
 		borderStyle: 'solid',
+		marginBottom: 2,
 
 	},
 	text: {

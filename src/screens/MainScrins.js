@@ -5,7 +5,7 @@ import Todo from '../components/Todo'
 
 export default function MainScrins({ onSubmit, todos, onOpen, removeTodo }) {
 	return (
-		<View>
+		<View style={styles.conteier }>
 			<AddTodo onSubmit={ onSubmit } />
 			<FlatList
 				data={ todos }
@@ -19,5 +19,6 @@ export default function MainScrins({ onSubmit, todos, onOpen, removeTodo }) {
 		</View>
 	)
 }
+
 
 const styles = StyleSheet.create({})

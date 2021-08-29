@@ -34,7 +34,10 @@ export default function App() {
   )
   if (todoId) {
     const selectedTodo = todos.find(e => e.id === todoId)
-    content = <TodoScreen todo={ selectedTodo}  onBack={ () => setTodoId(null) } />
+    content = <TodoScreen
+      removeTodo={ removeTodo }
+      todo={ selectedTodo }
+      onBack={ () => setTodoId(null) } />
   }
 
 
