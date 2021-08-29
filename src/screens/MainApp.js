@@ -9,7 +9,7 @@ export default function MainApp({ addTodo, todos, removeTodo}) {
 			<AddTodo sendTodo={ addTodo } />
 			<FlatList
 				data={ todos }
-				renderItem={ ({ item }) => <Todo removeTodo={ removeTodo }  todo={ item.title } /> }
+				renderItem={ ({ item }) => <Todo removeTodo={ removeTodo }  todo={ item } /> }
 				keyExtractor={ item => item.id }
 			/>
 		</View>

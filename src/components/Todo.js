@@ -6,9 +6,8 @@ export default function Todo({ todo, removeTodo }) {
 	return (
 		<TouchableOpacity
 			onLongPress={ () => removeTodo(todo.id) }
-
 		>
-			<Text style={ styles.block }>{ todo }</Text>
+			<Text style={ styles.block }>{ todo.title }</Text>
 		</TouchableOpacity>
 	)
 }

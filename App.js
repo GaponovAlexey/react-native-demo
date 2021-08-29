@@ -27,7 +27,7 @@ export default function App() {
   let conteiner = (
     <MainApp todos={ todos }
       addTodo={ addTodo }
-      removeTodo={ removeTodo }
+      removeTodo={ removeTodo } 
     />
   )
   if (todoID) {
