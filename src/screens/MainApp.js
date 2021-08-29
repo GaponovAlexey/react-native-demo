@@ -3,19 +3,15 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 import AddTodo from '../components/AddTodo'
 import Todo from '../components/Todo'
 
-export default function MainApp({ addTodo, todos,  }) {
+export default function MainApp({ addTodo, todos, removeTodo}) {
 	return (
 		<View>
-			<AddTodo
-				style={ styles.inp }
-				sendTodo={ addTodo } />
-			<View style={ styles.container }>
-				<FlatList
-					data={ todos }
-					renderItem={ ({ item }) => <Todo todo={ item.title } /> }
-					keyExtractor={ item => item.id }
-				/>
-			</View>
+			<AddTodo sendTodo={ addTodo } />
+			<FlatList
+				data={ todos }
+				renderItem={ ({ item }) => <Todo removeTodo={ removeTodo }  todo={ item.title } /> }
+				keyExtractor={ item => item.id }
+			/>
 		</View>
 	)
 }
