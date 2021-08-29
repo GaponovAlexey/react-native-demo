@@ -1,38 +1,43 @@
 import React, { useState } from 'react'
-import { Alert, Button, StyleSheet, TextInput, View } from 'react-native'
+import { StyleSheet, TextInput, Text, View, Button } from 'react-native'
 import { THEME } from '../theme'
 
-export default function AddTodo({ onSubmit }) {
-
-	const [value, setValue] = useState('')
-
-	const PressTodo = () => {
-		if (value.trim()) {
-			onSubmit(value)
-			setValue('')
+export default function AddTodo({ sendTodo  }) {
+	const [atodo, setAtodo] = useState('')
+	const addTodo = () => {
+		if (atodo.trim().toString()) {
+			sendTodo(atodo)
+			setAtodo('')
 		}
 	}
-
 	return (
-		<View style={ styles.cont }  >
-			<TextInput
-				value={ value }
-				onChangeText={ setValue }
-				placeholder='text'
-				style={ styles.inp } />
-			<Button onPress={ PressTodo } title='size' />
+		<View style={styles.cont}>
+			<TextInput style={styles.inp}
+			
+			value={atodo}
+			onChangeText={setAtodo}
+			/>
+			<Button title='send'
+				color={ THEME.GRAY_COLOR }
+				onPress={addTodo}
+			/>
 		</View>
 	)
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
 	cont: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		padding: 15,
+		backgroundColor: '#eee',
+
+
 	},
 	inp: {
 		borderBottomWidth: 2,
 		width: '80%',
-		borderBottomColor: THEME.MAIN_COLOR,
+		borderColor: THEME.MAIN_COLOR,
+
 	}
 })

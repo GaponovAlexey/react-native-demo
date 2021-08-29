@@ -1,54 +1,40 @@
 import React, { useState } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
 import Navbar from './src/components/Navbar';
-import MainScrins from './src/screens/MainScrins';
-import TodoScreen from './src/screens/TodoScreen';
+import MainApp from './src/screens/MainApp';
 
 
 export default function App() {
-  const [todoId, setTodoId] = useState(null)
+  const [todo, setTodo] = useState(null)
   const [todos, setTodos] = useState([
-    { id: '1', title: 'Выучить React Native' },
-    { id: '2', title: 'Создать React Native ' }
+    { id: '1', title: 'my APP' },
+    { id: '2', title: 'the best APP' },
+    { id: '3', title: 'forever APP' },
   ])
-
-
-
-  const addTodo = title => {
+  const addTodo = (title) => {
     setTodos(e => [{
       id: Date.now().toString(),
       title
-    }, ...e])
+    }, ...e]
+    )
   }
-  const removeTodo = id => {
-    setTodos(e => e.filter(e => e.id !== id))
+  const removeTodo = () => {
+
   }
-
-  let content = (
-    <MainScrins onSubmit={ addTodo }
-      removeTodo={ removeTodo }
-      todos={ todos }
-      onOpen={ setTodoId }
-
-    />
-  )
-  if (todoId) {
-    const selectedTodo = todos.find(e => e.id === todoId)
-    content = <TodoScreen
-      removeTodo={ removeTodo }
-      todo={ selectedTodo }
-      onBack={ () => setTodoId(null) } />
+  
+  if (todo) {
+    conteiner = <Redact />
   }
-
-
-
   return (
     <View>
-      <Navbar title='Add to-do' />
-      <View style={ styles.container } >
-        { content }
+      <Navbar title='Best APP' />
+      <View style={ styles.container }>
+        <MainApp todos={ todos }
+          addTodo={ addTodo }
+
+        />
       </View>
-    </View>
+    </View >
   );
 }
 
