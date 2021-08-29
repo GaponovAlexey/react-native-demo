@@ -15,7 +15,6 @@ export default function Todo({ todo, removeTodo, onOpen }) {
 		</TouchableOpacity>
 	)
 }
-const das = (dasd) => {dad}
 
 
 const styles = StyleSheet.create({

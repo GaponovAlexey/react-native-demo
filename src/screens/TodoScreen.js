@@ -1,19 +1,24 @@
 import React from 'react'
 import { Alert, Button, StyleSheet, Text, View } from 'react-native'
+import AppCard from '../components/Ui/AppCard'
+import { THEME } from '../theme'
 
-export default function TodoScreen({  onBack, todo, removeTodo }) {
+export default function TodoScreen({ onBack, todo }) {
 
 
 
 	return (
 		<View >
-			<Text style={ styles.text } >{ todo.title }</Text>
+			<AppCard style={styles.card} >
+				<Text style={ styles.text } >{ todo.title }</Text>
+				<Button title="edit" />
+			</AppCard>
 			<View style={ styles.conteiner } >
-				<View style={styles.but1}>
-				<Button title='Back' color='#757575' onPress={ onBack } />
+				<View style={ styles.but1 }>
+					<Button title='Back' color={ THEME.GRAY_COLOR } onPress={ onBack } />
 				</View>
-				<View style={styles.but2} >
-				<Button title='delet' color='#e53935' onPress={() => Alert.alert('delet') } />
+				<View style={ styles.but2 } >
+					<Button title='delet' color={ THEME.DANGER_COLOR } onPress={ () => Alert.alert('delet') } />
 				</View>
 			</View>
 		</View>
@@ -27,10 +32,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	text: {
-		backgroundColor: '#eee',
-		borderRadius: 5,
-		fontSize: 17,
-		paddingBottom: 10,
+		fontSize: 20,
 	},
 	but1: {
 		width: '40%',
@@ -38,6 +40,10 @@ const styles = StyleSheet.create({
 	},
 	but2: {
 		width: '40%',
-		
+
+	},
+	card: {
+		marginBottom: 20,
+		padding: 15,
 	}
 })
