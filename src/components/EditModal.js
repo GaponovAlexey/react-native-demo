@@ -1,16 +1,20 @@
 import React from 'react'
 import { Button, Modal, StyleSheet, Text, TextInput, View } from 'react-native'
+import { THEME } from '../theme'
 
 export default function EditModal({ visible, backModal }) {
 	return (
 		<Modal visible={ visible } >
 			<View style={styles.conteiner} >
 				<View style={ styles.inp }>
-					<TextInput placeholder='texp please' />
+					<TextInput placeholder='texp please'
+					autoCapitalize='none'
+					autoCompleteType='email'
+					/>
 				</View>
 				<View style={ styles.modal }>
-					<Button title='corect' />
-					<Button title='back' onPress={ backModal } />
+					<Button title='corect' color={THEME.GRAY_COLOR} />
+					<Button title='back' onPress={ backModal } color={ THEME.DANGER_COLOR } />
 				</View>
 			</View>
 		</Modal>
