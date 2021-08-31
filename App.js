@@ -6,7 +6,7 @@ import TodoTitle from './src/screens/TodoTitle';
 
 
 export default function App() {
-  const [todoID, setTodoID] = useState('2')
+  const [todoID, setTodoID] = useState(null)
   const [todos, setTodos] = useState([
     { id: '1', title: 'my APP' },
     { id: '2', title: 'the best APP' },
@@ -20,26 +20,45 @@ export default function App() {
     )
   }
   const removeTodo = (id) => {
-    setTodos(prev => prev.filter(e => e.id !== id))
+    const card = todos.find(e => e.id === id)
+    Alert.alert(
+      "Delet",
+      `Delet this card "${card.title}" : ? `,
+      [
+        {
+          text: "Cancel",
+          style: "cancel"
+        },
+        {
+          text: "Delet", onPress: () => {
+            setTodoID(null)
+            setTodos(prev => prev.filter(e => e.id !== id))
+          }
+        }
+      ],
+      { cancelable: false }
+    );
   }
 
 
   let conteiner = (
-    <MainApp todos={ todos }
+    <MainApp
+      todos={ todos }
       addTodo={ addTodo }
       removeTodo={ removeTodo }
       openTodo={ setTodoID }
     />
   )
 
-  
+
   if (todoID) {
     const todoback = todos.find(e => e.id === todoID)
     conteiner = <TodoTitle
-      todoback={ todoback } 
+      todoback={ todoback }
       todo={ todoback }
-      onBack={ () => setTodoID(null)}
-      />
+      onBack={ () => setTodoID(null) }
+      deletTOdo={ () => removeTodo(todoback.id) }
+    />
   }
   return (
     <View>
