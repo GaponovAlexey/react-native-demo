@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Modal, StyleSheet, Text, TextInput, View } from 'react-native'
 import { THEME } from '../theme'
 
-export default function EditModal({ visible, backModal }) {
+export default function EditModal({ visible, backModal, value, onCorect }) {
+	const [title, setTitle] = useState(value)
+
 	return (
 		<Modal visible={ visible } >
-			<View style={styles.conteiner} >
+			<View style={ styles.conteiner } >
 				<View style={ styles.inp }>
-					<TextInput placeholder='texp please'
-					autoCapitalize='none'
+					<TextInput
+						value={ title }
+						onChangeText={ setTitle }
+						placeholder='texp please'
+						autoCapitalize='none'
 					/>
 				</View>
 				<View style={ styles.modal }>
-					<Button title='corect' color={THEME.GRAY_COLOR} />
+					<Button title='corect' color={ THEME.GRAY_COLOR } onPress={() => onCorect(title)}/>
 					<Button title='back' onPress={ backModal } color={ THEME.DANGER_COLOR } />
 				</View>
 			</View>

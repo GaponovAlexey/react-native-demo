@@ -40,6 +40,14 @@ export default function App() {
     );
   }
 
+  const corectSend = (id, title) => {
+    setTodos(old => old.map( todo => {
+      if (todo.id === id) {
+        todo.title = title
+      }
+      return todo
+    }))
+  }
 
   let conteiner = (
     <MainApp
@@ -58,6 +66,7 @@ export default function App() {
       todo={ todoback }
       onBack={ () => setTodoID(null) }
       deletTOdo={ () => removeTodo(todoback.id) }
+      corectSend={ corectSend}
     />
   }
   return (

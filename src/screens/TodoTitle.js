@@ -3,11 +3,17 @@ import { Button, StyleSheet, Text, View } from 'react-native'
 import EditModal from '../components/EditModal'
 import AppCont from '../components/Ui/AppCont'
 
-export default function TodoTitle({ todo, onBack, deletTOdo, backModal }) {
+export default function TodoTitle({ todo, onBack, deletTOdo, backModal, corectSend }) {
 	const [modal, setModal] = useState(false)
+	const onEditCorect = title => {
+		corectSend(todo.id, title)
+		setModal(false)
+	}
 	return (
 		<View >
 			<EditModal
+			value={todo.title}
+				onCorect={ onEditCorect }
 				visible={ modal }
 				backModal={ () => setModal(false) }
 			/>
