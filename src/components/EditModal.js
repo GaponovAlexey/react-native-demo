@@ -9,7 +9,6 @@ export default function EditModal({ visible, backModal }) {
 				<View style={ styles.inp }>
 					<TextInput placeholder='texp please'
 					autoCapitalize='none'
-					autoCompleteType='email'
 					/>
 				</View>
 				<View style={ styles.modal }>

@@ -7,7 +7,8 @@ export default function TodoTitle({ todo, onBack, deletTOdo, backModal }) {
 	const [modal, setModal] = useState(false)
 	return (
 		<View >
-			<EditModal visible={ modal }
+			<EditModal
+				visible={ modal }
 				backModal={ () => setModal(false) }
 			/>
 			<AppCont  >
