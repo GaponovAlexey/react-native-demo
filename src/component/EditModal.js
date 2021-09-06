@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Button, Modal, StyleSheet, Text, TextInput, View } from 'react-native'
 
-export default function EditModal({ visible, backMod, todo, editTitle }) {
+export default function EditModal({ visible, value, onBack, corectTodo }) {
+	const [title, settitle] = useState(value)
 
-	const [title, settitle] = useState(todo)
-	
+
 	return (
 		<View>
 			<Modal
@@ -14,12 +14,13 @@ export default function EditModal({ visible, backMod, todo, editTitle }) {
 					<TextInput
 						value={ title }
 						onChangeText={ settitle }
-						placeholder='text'
+						placeholder='corect todo'
+
 					/>
 				</View>
-				<View style={ styles.but }>
-					<Button title='back' onPress={ backMod } />
-					<Button title='save' onPress={() => editTitle(title)} />
+				<View style={ styles.but } >
+					<Button title='back' onPress={ onBack } />
+					<Button title='corect' onPress={ () => corectTodo(title) } />
 				</View>
 			</Modal>
 		</View>
@@ -29,11 +30,12 @@ export default function EditModal({ visible, backMod, todo, editTitle }) {
 const styles = StyleSheet.create({
 	but: {
 		flexDirection: 'row',
-		justifyContent: 'space-around',
-		padding: 10,
+		justifyContent: 'space-between',
+		padding: 5,
 	},
 	inp: {
-		padding: 5,
+		padding: 8,
 		borderBottomWidth: 2,
+
 	}
 })

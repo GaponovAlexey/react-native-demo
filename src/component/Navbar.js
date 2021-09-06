@@ -1,10 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import AppTextBold from './Ui/AppTextBold'
 
 export default function Navbar() {
 	return (
 		<View style={ styles.cont } >
-			<Text style={ styles.text }>Title</Text>
+			<AppTextBold style={ styles.text }>Title</AppTextBold>
 		</View>
 	)
 }
