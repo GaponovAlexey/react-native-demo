@@ -13,11 +13,11 @@ export default function Navbar() {
 const styles = StyleSheet.create({
 	cont: {
 		flexDirection: 'row',
-		padding: 20,
+		padding: 10,
 		justifyContent: 'center',
 		backgroundColor: '#ccc',
 	},
 	text: {
-		fontSize: 20,
+		fontSize: 40,
 	}
 })

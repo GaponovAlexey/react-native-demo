@@ -26,7 +26,7 @@ export default function ViewTodo({ visible, todo, onBack, backMain, corectTodo, 
 			</View>
 			<View style={ styles.but } >
 				<Entypo onPress={ backMain } name='back' size={ 20 } />
-				<AppButton onPress={ () => deletTodo(todo.id) } >cor</AppButton>
+				<AppButton onPress={ () => deletTodo(todo.id) } >delet</AppButton>
 			</View>
 		</View>
 	)
