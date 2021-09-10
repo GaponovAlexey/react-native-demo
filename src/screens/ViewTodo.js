@@ -25,7 +25,7 @@ export default function ViewTodo({ visible, todo, onBack, backMain, corectTodo, 
 				<AntDesign name='edit' size={ 25 } onPress={ () => setVisib(true) } />
 			</View>
 			<View style={ styles.but } >
-				<Entypo onPress={ backMain } name='back' size={ 20 } />
+				<Entypo onPress={ backMain } name='back' size={ 40 } />
 				<AppButton onPress={ () => deletTodo(todo.id) } >cor</AppButton>
 			</View>
 		</View>
