@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-
 import * as Font from 'expo-font'
 import AppLoading from 'expo-app-loading';
 import MainLayout from './src/MainLayout';
@@ -19,6 +18,7 @@ async function loadAppLication() {
 
 
 export default function App() {
+
   const [isReady, setIsReady] = useState(false)
   if (!isReady) {
     return <AppLoading
