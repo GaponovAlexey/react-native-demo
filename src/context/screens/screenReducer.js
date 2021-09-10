@@ -6,6 +6,6 @@ const handlers = {
 }
 
 export const screenReducer = (state, action) => {
-	const handler = handlers[action, type] || handlers.DEFALULT
+	const handler = handlers[action.type] || handlers.DEFALULT
 	return handler(state, action.payload)
 }

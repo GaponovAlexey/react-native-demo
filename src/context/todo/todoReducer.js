@@ -11,7 +11,7 @@ const handlers = {
 		...state,
 		todos: state.todos.filter(todo => todo.id !== id)
 	}),
-	[UPDATE_TODO]: (state, { title, id }) => ({
+	[UPDATE_TODO]: (state, {id, title }) => ({
 		...state,
 		todos: state.todos.map(todo => {
 			if (todo.id === id) {

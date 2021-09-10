@@ -3,7 +3,15 @@ import { Button, Modal, StyleSheet, Text, TextInput, View } from 'react-native'
 
 export default function EditModal({ visible, value, onBack, corectTodo }) {
 	const [title, settitle] = useState(value)
-
+	const saveHandler = () => {
+		if (title.trim().length > 3) {
+			corectTodo(title)
+		}
+	}
+	const clearBeck = () => {
+		settitle(value)
+		onBack()
+	}
 
 	return (
 		<View>
@@ -19,8 +27,8 @@ export default function EditModal({ visible, value, onBack, corectTodo }) {
 					/>
 				</View>
 				<View style={ styles.but } >
-					<Button title='back' onPress={ onBack } />
-					<Button title='corect' onPress={ () => corectTodo(title) } />
+					<Button title='back' onPress={ clearBeck } />
+					<Button title='corect' onPress={ saveHandler } />
 				</View>
 			</Modal>
 		</View>
