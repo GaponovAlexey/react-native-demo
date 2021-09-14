@@ -33,7 +33,7 @@ export default function ViewTodo() {
 			</View>
 			<View style={ styles.but } >
 				<Entypo onPress={ () => changeScreen(null) } name='back' size={ 40 } />
-				<AppButton onPress={ () => removeTodo(todo.id) } >cor</AppButton>
+				<AppButton onPress={ () => removeTodo(todo.id) } >delet</AppButton>
 			</View>
 		</View>
 	)

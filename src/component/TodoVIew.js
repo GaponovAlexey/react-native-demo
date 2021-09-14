@@ -8,7 +8,7 @@ export default function TodoVIew({ todo, TodoID }) {
 			<TouchableOpacity
 				onPress={ () => TodoID(todo.id) }
 			>
-				<AppTextBold>{ todo.title }</AppTextBold>
+				<AppTextBold >{ todo.title }</AppTextBold>
 			</TouchableOpacity>
 		</View>
 	)
