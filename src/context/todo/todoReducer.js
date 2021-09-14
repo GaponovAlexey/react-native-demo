@@ -6,12 +6,9 @@ import {
 const handlers = {
 	[ADD_TODO]: (state, { id, title }) => ({
 		...state,
-		todos: [ { id, title }, ...state.todos ]
+		todos: [{ id, title }, ...state.todos]
 	}),
-	[REMOVE_TODO]: (state, { id }) => ({
-		...state,
-		todos: state.todos.filter(todo => todo.id !== id)
-	}),
+	[REMOVE_TODO]: (state, { id }) => ({ ...state, todos: state.todos.filter(todo => todo.id !== id) }),
 	[UPDATE_TODO]: (state, { id, title }) => ({
 		...state,
 		todos: state.todos.map(todo => {

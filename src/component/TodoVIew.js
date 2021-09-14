@@ -2,11 +2,12 @@ import React from 'react'
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import AppTextBold from './Ui/AppTextBold'
 
-export default function TodoVIew({ todo, TodoID }) {
+export default function TodoVIew({ todo, TodoID, remove }) {
 	return (
 		<View style={ styles.cont } >
 			<TouchableOpacity
 				onPress={ () => TodoID(todo.id) }
+				onLongPress={() => remove(todo.id)}
 			>
 				<AppTextBold >{ todo.title }</AppTextBold>
 			</TouchableOpacity>

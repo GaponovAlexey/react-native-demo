@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, StyleSheet, Keyboard, TextInput, View } from 'react-native'
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function TopTodo({ addTodo }) {
 	const [state, setState] = useState('')
@@ -21,10 +21,7 @@ export default function TopTodo({ addTodo }) {
 					value={ state }
 					onChangeText={ setState }
 					style={ styles.input } placeholder="todo here" />
-				<MaterialCommunityIcons.Button onPress={ sendTodo } name="heart-plus-outline" size={ 22 } color="#ccc" >
-					Enter
-				</MaterialCommunityIcons.Button>
-				{/*<Button  />*/ }
+				<AntDesign name="edit" onPress={ sendTodo } size={ 43 } color="black" />
 			</View>
 
 		</View>
@@ -33,7 +30,7 @@ export default function TopTodo({ addTodo }) {
 
 const styles = StyleSheet.create({
 	cont: {
-		width: '100%',
+		width: '102%',
 	},
 	but: {
 		flexDirection: 'row',

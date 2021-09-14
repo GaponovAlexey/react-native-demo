@@ -8,7 +8,7 @@ import { ScreenContext } from '../context/screens/screnContex'
 import { TodoContext } from '../context/todo/todoContext'
 
 export default function MainScreen() {
-	const { todos, addTodo, fetchTodo, loading, error } = useContext(TodoContext)
+	const { todos, addTodo, fetchTodo, removeTodo, loading, error } = useContext(TodoContext)
 	const { changeScreen } = useContext(ScreenContext)
 
 	const loadTodos = useCallback(async () => await fetchTodo(), [fetchTodo])
@@ -18,7 +18,7 @@ export default function MainScreen() {
 		return <AppLoade />
 	}
 	if (error) {
-		return <View><AppTextBold>{error}</AppTextBold></View>
+		return <View><AppTextBold>{ error }</AppTextBold></View>
 	}
 
 	const content = (
@@ -30,6 +30,7 @@ export default function MainScreen() {
 					keyExtractor={ item => item.id }
 					renderItem={ ({ item }) =>
 						<TodoVIew
+							remove={ removeTodo }
 							TodoID={ changeScreen }
 							todo={ item } /> }
 				/>

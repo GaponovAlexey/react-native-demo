@@ -29,13 +29,21 @@ export default function App() {
   }
 
   return (
+    <View style={styles.main} >
     <ScrenState >
       <TodoState >
         <MainLayout />
       </TodoState >
     </ScrenState>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  main: {
+    backgroundColor: '#26f2'
+  }
+})
 
 
 
