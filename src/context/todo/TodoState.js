@@ -59,7 +59,7 @@ export default function TodoState({ children }) {
 
 	const fetchTodo = async () => {
 		const response = await Http.get(url)
-		const todos = Object.keys(response).map(e => ({ ...response[e], id: e }))
+		const todos = Object.keys(response).map(e => ({ id: e, ...response[e] }))
 		dispatch({ type: FETCH_TODOS, todos })
 	}
 

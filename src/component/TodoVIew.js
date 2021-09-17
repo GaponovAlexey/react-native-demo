@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import AppTextBold from './Ui/AppTextBold'
 
 export default function TodoVIew({ todo, TodoID, remove }) {
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
 		padding: 13,
 		margin: 2,
 		borderWidth: 1,
+		borderColor: '#ccc',
 		borderRadius: 5,
 		backgroundColor: '#eee',
 	},

@@ -4,25 +4,23 @@ import {
 } from './type'
 
 const handlers = {
-	[ADD_TODO]: (state, { id, title }) => ({
-		...state,
-		todos: [{ id, title }, ...state.todos]
-	}),
-	[REMOVE_TODO]: (state, { id }) => ({ ...state, todos: state.todos.filter(todo => todo.id !== id) }),
-	[UPDATE_TODO]: (state, { id, title }) => ({
-		...state,
-		todos: state.todos.map(todo => {
-			if (todo.id === id) {
-				todo.title = title
-			} return todo
-		})
-	}),
-	[SHOW_LOADER]: state => ({ ...state, loading: true }),
-	[HIDE_LOADER]: state => ({ ...state, loading: false }),
-	[CLEAR_ERROR]: state => ({ ...state, error: null }),
+	//[ADD_TODO]: (state, { id, title }) => ({ ...state, todos: [{ id, title }, ...state.todos] }),
+	//[REMOVE_TODO]: (state, { id }) => ({ ...state, todos: state.todos.filter(todo => todo.id !== id) }),
+	//[UPDATE_TODO]: (state, { id, title }) => ({ ...state, todos: state.todos.map(todo => { if (todo.id === id) { todo.title = title } return todo }) }),
+	//[SHOW_LOADER]: (state) => ({ ...state, loading: true }),
+	//[HIDE_LOADER]: (state) => ({ ...state, loading: false }),
+	//[CLEAR_ERROR]: (state) => ({ ...state, error: null }),
+	//[SHOW_LOADER]: (state, { error }) => ({ ...state, error }),
+	//[FETCH_TODOS]: (state, { todos }) => ({ ...state, todos }),
+	//DEFAULT: state => state
+	[ADD_TODO]: (state, { id, title }) => ({ ...state, todos: [...state.todos, { id, title }] }),
+	[REMOVE_TODO]: (state, { id }) => ({ ...state, todos: state.todos.map(todo => todo.id !== id) }),
+	[UPDATE_TODO]: (state, { title, id }) => ({ ...state, todos: state.todos.map(todo => { if (todo.id === id) { todo.title = title } return todo }) }),
+	[SHOW_LOADER]: (state) => ({ ...state, loading: true }),
+	[HIDE_LOADER]: (state) => ({ ...state, loading: false }),
+	[CLEAR_ERROR]: (state) => ({ ...state, error: null }),
 	[SHOW_ERROR]: (state, { error }) => ({ ...state, error }),
-	[FETCH_TODOS]: (state, { todos }) => ({ ...state, todos }),
-	DEFAULT: state => state
+	[FETCH_TODOS]: (state, { todos }) => ({ ...state, todos })
 }
 
 
